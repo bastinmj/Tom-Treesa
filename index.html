@@ -14,7 +14,7 @@
     .form-container {
       background: rgba(255, 255, 255, 0.85);
       max-width: 500px;
-      margin: 10% auto;
+      margin: 5% auto;
       padding: 40px 30px;
       border-radius: 12px;
       text-align: center;
@@ -22,9 +22,33 @@
     }
     h2 {
       font-size: 32px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       color: #bfa046;
     }
+    .quote {
+      font-size: 16px;
+      font-style: italic;
+      margin-bottom: 20px;
+      color: #7b6b53;
+    }
+
+    .custom-countdown {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
+    .timer-display {
+      display: flex;
+      justify-content: space-around;
+      font-size: 20px;
+      margin-top: 10px;
+      color: #a67c00;
+    }
+    .timer-display span {
+      text-align: center;
+    }
+
     input, textarea {
       width: 100%;
       padding: 12px;
@@ -51,6 +75,21 @@
 </head>
 <body>
   <div class="form-container">
+    <h2>Treesa & Tom 💍</h2>
+    <div class="quote">"There are three things that matter most: faith, hope, and love, and the greatest of these is love." – 1 Corinthians 13:13</div>
+
+    <!-- Custom Countdown Timer -->
+    <div class="custom-countdown">
+      <h3>Wedding Countdown 💫</h3>
+      <div id="countdown" class="timer-display">
+        <span><strong id="days">0</strong><br>Days</span>
+        <span><strong id="hours">0</strong><br>Hours</span>
+        <span><strong id="minutes">0</strong><br>Minutes</span>
+        <span><strong id="seconds">0</strong><br>Seconds</span>
+      </div>
+    </div>
+
+    <!-- Form -->
     <h2>Leave Your Wishes 💌</h2>
     <form id="weddingForm">
       <input type="text" name="name" placeholder="Your Name" required />
@@ -60,9 +99,34 @@
   </div>
 
   <script>
+    // Countdown timer script
+    function updateCountdown() {
+      const targetDate = new Date("July 5, 2025 00:00:00").getTime();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("countdown").innerHTML = "🎉 It's the big day!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call
+
+    // Form submission
     document.getElementById("weddingForm").addEventListener("submit", function(e) {
       e.preventDefault();
-
       const form = e.target;
       const data = new FormData(form);
 
