@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Treesa & Tom – Wedding Wishes</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
   <style>
@@ -47,6 +49,7 @@
     }
     .timer-display span {
       text-align: center;
+      min-width: 60px;
     }
 
     input, textarea {
@@ -78,7 +81,7 @@
     <h2>Treesa & Tom 💍</h2>
     <div class="quote">"There are three things that matter most: faith, hope, and love, and the greatest of these is love." – 1 Corinthians 13:13</div>
 
-    <!-- Custom Countdown Timer -->
+    <!-- Countdown Timer -->
     <div class="custom-countdown">
       <h3>Wedding Countdown 💫</h3>
       <div id="countdown" class="timer-display">
@@ -89,7 +92,6 @@
       </div>
     </div>
 
-    <!-- Form -->
     <h2>Leave Your Wishes 💌</h2>
     <form id="weddingForm">
       <input type="text" name="name" placeholder="Your Name" required />
@@ -99,21 +101,21 @@
   </div>
 
   <script>
-    // Countdown timer script
+    // Countdown Logic
     function updateCountdown() {
-      const targetDate = new Date("July 5, 2025 00:00:00").getTime();
+      const target = new Date("July 5, 2025 00:00:00").getTime();
       const now = new Date().getTime();
-      const distance = targetDate - now;
+      const diff = target - now;
 
-      if (distance <= 0) {
+      if (diff <= 0) {
         document.getElementById("countdown").innerHTML = "🎉 It's the big day!";
         return;
       }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
       document.getElementById("days").textContent = days;
       document.getElementById("hours").textContent = hours;
@@ -122,9 +124,9 @@
     }
 
     setInterval(updateCountdown, 1000);
-    updateCountdown(); // Initial call
+    updateCountdown();
 
-    // Form submission
+    // Form Submission
     document.getElementById("weddingForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const form = e.target;
@@ -134,16 +136,14 @@
         method: "POST",
         body: data
       })
-      .then(response => {
-        if (response.ok) {
+      .then(res => {
+        if (res.ok) {
           window.location.href = "thankyou.html";
         } else {
-          alert("Something went wrong. Please try again later.");
+          alert("Failed to submit. Please try again.");
         }
       })
-      .catch(error => {
-        alert("Error: " + error);
-      });
+      .catch(err => alert("Error: " + err));
     });
   </script>
 </body>
