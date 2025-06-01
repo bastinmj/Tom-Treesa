@@ -1,84 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: 'Cormorant Garamond', serif;
       background: url('tom.png') no-repeat center center fixed;
       background-size: cover;
+      font-family: 'Cormorant Garamond', serif;
+      color: #4b3d2f;
+      margin: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      height: 100vh;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .box {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255,255,255,0.92);
       padding: 40px 30px;
       border-radius: 12px;
       text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      animation: fadeIn 1.2s ease-in-out;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       max-width: 90%;
     }
 
     h1 {
       color: #bfa046;
-      font-size: 36px;
-      margin-bottom: 15px;
+      font-size: 2.2em;
+      margin-bottom: 10px;
     }
 
     p {
-      font-size: 20px;
-      margin: 5px 0;
-      color: #4b3d2f;
+      font-size: 1.2em;
+      margin: 8px 0;
     }
 
-    .back-btn {
-      display: inline-block;
+    .btn-home {
       margin-top: 20px;
+      display: inline-block;
       padding: 10px 20px;
       background-color: #bfa046;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
-      transition: background-color 0.3s;
+      border-radius: 6px;
+      font-size: 1em;
     }
 
-    .back-btn:hover {
-      background-color: #a88e3b;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 28px;
-      }
-
-      p {
-        font-size: 18px;
-      }
-
-      .back-btn {
-        font-size: 16px;
-        padding: 8px 16px;
-      }
+    .btn-home:hover {
+      background-color: #a88f3c;
     }
   </style>
 </head>
@@ -87,7 +63,12 @@
     <h1>Thank You 💖</h1>
     <p>Your wishes mean the world to us!</p>
     <p>— Treesa & Tom</p>
-    <a href="index.html" class="back-btn" role="button" aria-label="Back to Main Page">Back to Main Page</a>
+    <a class="btn-home" href="index.html">Back to Main Page</a>
   </div>
+
+  <audio autoplay loop>
+    <source src="audio/canon-in-d-piano.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 </body>
 </html>
