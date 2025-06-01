@@ -13,8 +13,9 @@
       color: #4b3d2f;
       margin: 0;
     }
+
     .form-container {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       max-width: 500px;
       margin: 5% auto;
       padding: 40px 30px;
@@ -22,11 +23,13 @@
       text-align: center;
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
+
     h2 {
       font-size: 32px;
       margin-bottom: 10px;
       color: #bfa046;
     }
+
     .quote {
       font-size: 16px;
       font-style: italic;
@@ -40,14 +43,18 @@
       margin-bottom: 30px;
       border-radius: 10px;
     }
+
     .timer-display {
       display: flex;
-      justify-content: space-around;
-      font-size: 20px;
-      margin-top: 10px;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 18px;
+      flex-wrap: wrap;
       color: #a67c00;
     }
+
     .timer-display span {
+      flex: 1 1 45%;
       text-align: center;
       min-width: 60px;
     }
@@ -61,6 +68,7 @@
       border-radius: 6px;
       font-family: inherit;
     }
+
     button {
       background: #d4af37;
       color: white;
@@ -71,8 +79,33 @@
       cursor: pointer;
       margin-top: 10px;
     }
+
     button:hover {
       background: #c39c34;
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 20px 15px;
+        margin: 20px 10px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .quote {
+        font-size: 14px;
+      }
+
+      .timer-display {
+        font-size: 16px;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 12px 20px;
+      }
     }
   </style>
 </head>
