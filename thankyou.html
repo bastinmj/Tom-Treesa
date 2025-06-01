@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
   <style>
@@ -10,10 +12,10 @@
       font-family: 'Cormorant Garamond', serif;
       color: #4b3d2f;
       margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       animation: fadeIn 2s ease-in;
     }
 
@@ -29,6 +31,7 @@
       text-align: center;
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       max-width: 90%;
+      width: 400px;
     }
 
     h1 {
@@ -51,10 +54,15 @@
       text-decoration: none;
       border-radius: 6px;
       font-size: 1em;
+      transition: background-color 0.3s ease;
     }
 
     .btn-home:hover {
       background-color: #a88f3c;
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
@@ -66,8 +74,9 @@
     <a class="btn-home" href="index.html">Back to Main Page</a>
   </div>
 
+  <!-- Background music -->
   <audio autoplay loop>
-    <source src="audio/canon-in-d-piano.mp3" type="audio/mpeg">
+    <source src="audio/canon-in-d-soft-piano.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 </body>
